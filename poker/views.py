@@ -5,5 +5,5 @@ def index(request):
 
 def room(request, room_name):
     return render(request, 'gameroom.html', {
-        'room':room_name
+        'room_name':room_name
     })
