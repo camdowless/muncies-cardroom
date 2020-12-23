@@ -25,8 +25,7 @@ SECRET_KEY = 'qs2t6ag*dkez(4*tf#7ig8bc-@1@@6u=5qm0$^v3%7(az64_%d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['django-env.eba-ym5c2kqy.us-west-2.elasticbeanstalk.com']
 
 # Application definition
 
@@ -126,3 +125,5 @@ CHANNEL_LAYERS = {
         "BACKEND": "channels.layers.InMemoryChannelLayer"
     }
 }
+
+RUNSERVER_PORT = '8081'
