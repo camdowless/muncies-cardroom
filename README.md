@@ -4,7 +4,6 @@ An online multiplayer poker app.
 Setup:
 
 - Navigate to /venv/Scripts
-- Run `activate`
+- Run `activate`. This starts the django virtual environment. 
 - Run `cd ../..` to get back to root directory.
-- The django virtual environment should be running now
 - Run `py manage.py runserver` to start the server. 
