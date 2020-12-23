@@ -11,7 +11,8 @@
     <title>Lobby</title>
   </head>
   <body>
-    <!-- <input id='username' type='text' placeholder="Enter a username"></br> -->
+    <a id="loggedin"></a><br>
+
     <textarea id="chat-text" cols="80", rows="30"></textarea><br>
     <input id='input' type='text' size='80'></br>
     <input id='submit' type='button' value="Send">
@@ -21,10 +22,12 @@
 
     <script>
 
-        const username = document.getElementById('username').textContent;
+        const username = prompt("Enter a username");
+        document.getElementById('loggedin').innerHTML = "Logged in as: " + username;
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
 
         document.querySelector('#submit').onclick = function (e) {
+
             const messageInputDom = document.querySelector('#input');
             const message = messageInputDom.value;
             chatSocket.send(JSON.stringify({
@@ -47,7 +50,7 @@
         chatSocket.onmessage = function (e) {
             const data = JSON.parse(e.data);
             console.log(data)
-            document.querySelector('#chat-text').value += (data.userName + ': ' + data.message + '\n')
+            document.querySelector('#chat-text').value += (data.username + ': ' + data.message + '\n')
         }
     </script>
 
