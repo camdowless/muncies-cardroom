@@ -25,7 +25,7 @@ SECRET_KEY = 'qs2t6ag*dkez(4*tf#7ig8bc-@1@@6u=5qm0$^v3%7(az64_%d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['MCR-env.eba-eaapgpis.us-west-2.elasticbeanstalk.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['MCRenv.eba-eaapgpis.us-west-2.elasticbeanstalk.com', '127.0.0.1']
 
 # Application definition
 
@@ -124,13 +124,12 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 
 ASGI_APPLICATION = "core.routing.application"
 CHANNEL_LAYERS = {
-    'default': {
+    "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [os.environ.get('REDIS_URL',  '6379')]
+            "hosts": [os.environ.get('REDIS_URL', 'redis://localhost:6379')],
         },
-        'ROUTING': 'core.routing.application'
-    }
+    },
 }
 
 """CACHES = {
