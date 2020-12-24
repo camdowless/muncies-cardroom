@@ -25,7 +25,6 @@
         const username = prompt("Enter a username");
         document.getElementById('loggedin').innerHTML = "Logged in as: " + username;
         const roomName = JSON.parse(document.getElementById('room-name').textContent);
-
         document.querySelector('#submit').onclick = function (e) {
 
             const messageInputDom = document.querySelector('#input');
@@ -49,7 +48,6 @@
 
         chatSocket.onmessage = function (e) {
             const data = JSON.parse(e.data);
-            console.log(data)
             document.querySelector('#chat-text').value += (data.username + ': ' + data.message + '\n')
         }
     </script>
